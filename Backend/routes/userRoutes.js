@@ -1,30 +1,17 @@
 const express = require('express');
-app = express();
-// const json=require('json');   
-const db = require('./db');
-const User = require('./models/user');
-// const Donor = require('./models/donor');
-const BloodBank = require('./models/bloodbank');
-// const Receiver = require('./models/receiver');
+const router = express.Router(); // manage all  the routes of our application
 
-require('dotenv').config();
+const db = require('./../db');
+const User = require('./../models/user');
+// function myMiddleware(req, res, next) {
+//     // Do something with the request
+//     console.log('Middleware function executed');
+//     // Call the next middleware function
+//     next();
+// }
+// router.use(myMiddleware);
 
-const bodyParser = require('body-parser');
-
-// middleware func
-const logRequest=(req,res,next)=>{
-    console.log(`${new Date().toLocaleDateString()} request made to server`)
-    next();
-}
-// app.use(bodyParser.json());            // middleware for parsing json data
-
-app.use(logRequest);
-app.get('/',(req,res)=>{    // get mei data back to fronts
-    res.send("Welcome to BLOOD LINK")
-    console.log("hi");
-})
-
-app.post('/user', async (req, res) => {
+router.post('/', async (req, res) => {
     try{
         const newUser_data = req.body;
         const newUser = new User(newUser_data);
@@ -38,7 +25,7 @@ app.post('/user', async (req, res) => {
     }
 })
 
-app.get('/user',async (req,res)=>{
+router.get('/',async (req,res)=>{
     try{
     const data = await User.find();
     console.log(data);
@@ -52,7 +39,7 @@ app.get('/user',async (req,res)=>{
 })
 
 
-app.put("/user/:id", async (req,res)=>{
+router.put("/:id", async (req,res)=>{
     try{
         const userID = req.params.id;
         const updateUserData = req.body;
@@ -77,7 +64,7 @@ app.put("/user/:id", async (req,res)=>{
     }
 })
 
-app.delete("/user/:id", async(req,res)=>{
+router.delete("/:id", async(req,res)=>{
     try{
         const userID = req.params.id;
 
@@ -95,17 +82,4 @@ app.delete("/user/:id", async(req,res)=>{
     }
 })
 
-
-
-
-// // import router files
-// const userRoutes = require('./routes/userRoutes')
-const bloodbankRoutes = require('./routes/bloodbankRoutes')
-// // user router files
-// app.use("/user", userRoutes);
-app.use("/bloodbank", bloodbankRoutes);
-
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, ()=>{
-    console.log('server is live');
-})
+module.exports = router;
