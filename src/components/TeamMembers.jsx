@@ -2,7 +2,7 @@ import React from 'react';
 
 const TeamMembers = () => {
     return (
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="bg-red-50 rounded-lg shadow-md p-6">
             <h2 className="text-3xl font-bold mb-4">Our Team</h2>
             <ul className="list-none">
                 <li className="text-lg font-semibold text-gray-900 mb-2">Nikhil Kumar</li>
@@ -15,4 +15,3 @@ const TeamMembers = () => {
 };
 
 export default TeamMembers;
-    

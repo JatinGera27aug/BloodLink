@@ -10,7 +10,7 @@ const UpcomingCamps = () => {
     ];
 
     return (
-        <div className="max-w-lg mx-auto mt-8">
+        <div className="max-w-lg mx-auto mt-10">
             <h2 className="text-3xl font-bold mb-4">Upcoming Blood Donation Camps</h2>
             <ul className="space-y-4">
                 {upcomingCamps.map((camp, index) => (
