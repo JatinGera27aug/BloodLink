@@ -7,6 +7,8 @@ import Profile from './Profile';
 import Donate from "./Donate";
 import Recieve from "./Recieve";
 import Blog from './Blog';
+import BloodBankLogin from "./BloodBankLogin";
+import BloodBankRegister from "./BloodBankRegister";
 
 export {
     About,
@@ -17,5 +19,7 @@ export {
     Profile,
     Donate,
     Recieve,
-    Blog
+    Blog,
+    BloodBankLogin,
+    BloodBankRegister
 }

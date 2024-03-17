@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import Layout from './Layout'
-import { Home,About, Login, SignUpPage1, SignUpPage2,Profile,Donate,Recieve,Blog } from './pages'
+import { Home,About, Login, SignUpPage1, SignUpPage2,Profile,Donate,Recieve,Blog,BloodBankLogin,BloodBankRegister } from './pages'
 import UserContextProvider from './context/UserContextProvider'
 function App() {
   const router = createBrowserRouter(
@@ -17,6 +17,8 @@ function App() {
         <Route path='donate' element={<Donate />} />
         <Route path='recieve' element={<Recieve />} />
         <Route path='blog' element={<Blog />} />
+        <Route path='blood-bank-login' element={<BloodBankLogin />} />
+        <Route path='register' element={<BloodBankRegister />} />
       </Route>
     )
   )

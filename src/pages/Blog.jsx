@@ -18,22 +18,21 @@ const Blog = () => {
         }
     ]);
 
-    
-    
-
     return (
-        <div className="flex justify-center p-4 m-4">
-            <div className="max-w-md w-full p-4">
+        <div className="grid grid-cols-2 gap-4 p-4 m-4"> {/* Grid layout with 2 columns */}
+            <div>
                 <h2 className="text-3xl font-bold text-center mb-4">Blog Posts</h2>
                 {blogPosts.map((post, index) => (
-                    <div key={index} className="bg-white shadow-md p-4 rounded-md mb-4">
+                    <div key={index} className="bg-white border border-red-950 shadow-md p-4 rounded-md mb-4">
                         <h3 className="text-xl font-semibold">{post.title}</h3>
                         <p className="mt-2">{post.content}</p>
                         <p className="mt-2">Author: {post.author}</p>
                     </div>
                 ))}
             </div>
-            <BlogForm />
+            <div className="flex justify-center items-center">
+                <BlogForm />
+            </div>
         </div>
     );
 };

@@ -2,17 +2,17 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
+    /**
+     * Renders the footer component with navigation links, 
+     * social media links and legal links.
+     */
     return (
         <footer className="bg-white border-y">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
                         <Link to="/" className="flex items-center">
-                            <img
-                                src="https://alexharkness.com/wp-content/uploads/2020/06/logo-2.png"
-                                className="mr-3 h-16"
-                                alt="Logo"
-                            />
+                            <h1 className='font-bold text-3xl'>Blood<span className='text-red-800'>Link</span></h1>
                         </Link>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

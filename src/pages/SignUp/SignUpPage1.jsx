@@ -6,6 +6,7 @@ const SignUpPage1 = () => {
     const [dob, setDob] = useState('');
     const [aadhar, setAadhar] = useState('');
     const [blood, setBlood] = useState('');
+    const [address,setAddress] = useState('');
     const [isFormValid, setIsFormValid] = useState(false);
     const bloodGroup = [
         { value: 'A+' },
@@ -18,7 +19,6 @@ const SignUpPage1 = () => {
         { value: 'AB-' },
     ];
 
-    // Update isFormValid whenever any input field changes
     const handleInputChange = () => {
         setIsFormValid(!!name && !!dob && !!aadhar && !!blood);
     };
@@ -33,6 +33,7 @@ const SignUpPage1 = () => {
         console.log(dob);
         console.log(aadhar);
         console.log(blood);
+        console.log(address);
     };
 
     return (
@@ -48,6 +49,7 @@ const SignUpPage1 = () => {
                     ))}
                 </select>
                 <input className="border border-gray-300 rounded-md py-2 px-3 w-full" type="text" placeholder="Enter your Aadhar number" value={aadhar} onChange={(e) => {setAadhar(e.target.value); handleInputChange()}} required/>
+                <input className="border border-gray-300 rounded-md py-2 px-3 w-full" type="text" placeholder="Enter your Address" value={aadhar} onChange={(e) => {setAddress(e.target.value); handleInputChange()}} required/>
                 <div className="flex justify-center">
                     <label className="cursor-pointer bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-blue-300">
                         Submit Document for Verification

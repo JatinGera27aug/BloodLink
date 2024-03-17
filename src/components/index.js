@@ -19,5 +19,5 @@ export {
     MissionVision,
     SearchComponent,
     Slider,
-    UpcomingCamps
+    UpcomingCamps,
 }

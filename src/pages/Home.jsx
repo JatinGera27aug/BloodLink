@@ -24,7 +24,7 @@ export default function Home() {
             <div className='w-full'>
                 <Slider />
             </div>
-            {!user && <div className='w-full flex justify-end'>
+            {user && <div className='w-full flex justify-end'>
                 <Link
                     to="/donate"
                     className="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-6 py-4 mr-2 focus:outline-none"
