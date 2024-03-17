@@ -1,13 +1,63 @@
-<!doctype html>
+<!-- index.html -->
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data</title>
+    <h2>the param is <%=name%></h2>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>User Data</h1>
+    <div id="userData"></div>
+
+    <script>
+        // Fetch user data from the backend API
+        const backendUrl = 'http://localhost:8080/user/jon566';
+        fetch(backendUrl) // Replace 'username' with the actual username
+            .then(response => response.json())
+            .then(data => {
+                // Create table to display user data
+                const table = document.createElement('table');
+                const thead = table.createTHead();
+                const tbody = table.createTBody();
+                
+                // Create header row
+                const headerRow = thead.insertRow();
+                for (const key in data[0]) {
+                    const th = document.createElement('th');
+                    th.textContent = key.toUpperCase();
+                    headerRow.appendChild(th);
+                }
+                
+                // Create data rows
+                data.forEach(user => {
+                    const row = tbody.insertRow();
+                    for (const key in user) {
+                        const cell = row.insertCell();
+                        cell.textContent = user[key];
+                    }
+                });
+
+                // Append table to the page
+                document.getElementById('userData').appendChild(table);
+            })
+            .catch(error => console.error('Error fetching user data:', error));
+    </script>
+</body>
 </html>
